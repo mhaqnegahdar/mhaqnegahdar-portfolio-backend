@@ -1,6 +1,6 @@
 # My Blog Backend
 
-This is a practical **API** using Node, TypeScript. It can be used as a sample starter project aswell
+This is a practical **API** using Node, TypeScript form [my own blog](https://mhaqnegahdar.site). Created by `bun init -y`.
 
 explore the demo [here](https://mhaqnegahdar.site)
 
@@ -17,27 +17,58 @@ explore the demo [here](https://mhaqnegahdar.site)
 -   Supports Tests
 -   Typescript Modules
 
-
 ## Installation
 
-###### Add Environment Variables
+#### Add Environment Variables
 
 Create **.env** from '.env.example' file and declare the project environment variables
 
 Starting a development instance of the app
 
-###### shell command for development
-
-To install dependencies:
+##### Install The Dependencies
 
 ```bash
 bun install
 ```
 
-To run:
+##### Run The Dev Server
 
 ```bash
 bun run dev
+```
+
+##### Run The Production Server
+
+```bash
+bun run start
+```
+
+##### Run The Tests
+
+```bash
+bun run test
+```
+
+##### Build The App
+
+```bash
+bun run build
+```
+
+###### Run the Built App
+
+```bash
+bun run start-built
+```
+
+#### Running the App using Dockerfile
+
+```bash
+# Build Image Command
+docker build -t mhaqnegahdar/portfolio-backend:1.0 .
+
+# Run Image Command
+docker run --env-file .env -p 8000:8000 your-image-name
 ```
 
 This project was created using `bun init` in bun v1.1.40. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

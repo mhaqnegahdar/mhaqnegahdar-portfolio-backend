@@ -1,5 +1,5 @@
 import type { Express } from 'express';
-import type { RouteHandler } from '../types/route';
+import type { RouteHandler } from '../types/route.js';
 function defineRoutes(controllers: any[], application: Express) {
     for (const controller of controllers) {
         const controllerInstance = new controller();

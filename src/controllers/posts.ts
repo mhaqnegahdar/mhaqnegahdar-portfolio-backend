@@ -1,37 +1,37 @@
 import type { Request, Response } from 'express';
 
 // Decorators
-import Controller from '../decorators/controller';
-import Route from '../decorators/route';
+import Controller from '../decorators/controller.js';
+import Route from '../decorators/route.js';
 
-@Controller('/blogs')
-class Blogs {
+@Controller('/posts')
+class Posts {
     // Create
-    @Route('post', '/', [])
+    @Route('post', '/')
     createBlog(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     // Read all
-    @Route('get', '/', [])
-    getBlogs(req: Request, res: Response) {
+    @Route('get', '/')
+    getPosts(req: Request, res: Response) {
         res.status(200).json({ data: [] });
     }
 
     // Read one
-    @Route('get', '/:id', [])
+    @Route('get', '/:id')
     geBlog(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     //Update
-    @Route('patch', '/', [])
+    @Route('patch', '/')
     updateBlog(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     // Delete Blog
-    @Route('delete', '/:id', [])
+    @Route('delete', '/:id')
     deleteBlog(req: Request, res: Response) {
         const { id } = req.params;
 
@@ -39,7 +39,7 @@ class Blogs {
     }
 
     // Like Blog
-    @Route('post', '/:id/like', [])
+    @Route('post', '/:id/like')
     likeBlog(req: Request, res: Response) {
         const { id } = req.params;
 
@@ -47,7 +47,7 @@ class Blogs {
     }
 
     // Save Blog
-    @Route('post', '/:id/save', [])
+    @Route('post', '/:id/save')
     saveBlog(req: Request, res: Response) {
         const { id } = req.params;
 
@@ -55,4 +55,4 @@ class Blogs {
     }
 }
 
-export default Blogs;
+export default Posts;

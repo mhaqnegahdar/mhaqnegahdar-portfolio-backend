@@ -1,7 +1,7 @@
 // test/units/controllers/test.test.ts
 import { expect, it, describe} from 'bun:test';
 import request from 'supertest';
-import { application, ShutDown } from '../../../src/server';
+import { application, ShutDown } from '../../../src/server.js';
 
 describe('Test Controller', () => {
    

@@ -1,43 +1,43 @@
 import type { Request, Response } from 'express';
 
 // Decorators
-import Controller from '../decorators/controller';
-import Route from '../decorators/route';
+import Controller from '../decorators/controller.js';
+import Route from '../decorators/route.js';
 
 @Controller('/comments')
 class Comments {
     // Create
-    @Route('post', '/', [])
+    @Route('post', '/')
     createComment(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     // Read all
-    @Route('get', '/', [])
+    @Route('get', '/')
     getComments(req: Request, res: Response) {
         res.status(200).json({ data: [] });
     }
 
     // Read one
-    @Route('get', '/:id', [])
+    @Route('get', '/:id')
     geComment(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     //Update
-    @Route('patch', '/', [])
+    @Route('patch', '/')
     updateComment(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     // Delete Comment
-    @Route('delete', '/:id', [])
+    @Route('delete', '/:id')
     deleteComment(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }
 
     // reply Comment
-    @Route('post', '/:id/reply', [])
+    @Route('post', '/:id/reply')
     likeComment(req: Request, res: Response) {
         res.status(200).json({ data: {} });
     }

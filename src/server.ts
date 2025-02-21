@@ -4,18 +4,18 @@ import './config/logging';
 import 'reflect-metadata';
 
 // Handlers
-import { loggingHandler } from './middlewares/loggingHandler';
-import { corsHandler } from './middlewares/corsHandler';
-import { routeNotFound } from './middlewares/routeNotFound';
+import { loggingHandler } from './middlewares/loggingHandler.js';
+import { corsHandler } from './middlewares/corsHandler.js';
+import { routeNotFound } from './middlewares/routeNotFound.js';
 
 // ENV
-import { SERVER } from './config/config';
-import defineRoutes from './modules/route';
+import { SERVER } from './config/config.js';
+import defineRoutes from './modules/route.js';
 
 // Controllers
-import Test from './controllers/test';
-import Comments from './controllers/comments';
-import Blogs from './controllers/blogs';
+import Test from './controllers/test.js';
+import Comments from './controllers/comments.js';
+import Posts from './controllers/posts.js';
 
 export const application = express();
 export let httpServer: ReturnType<typeof http.createServer>;
@@ -36,7 +36,7 @@ export const Main = () => {
     logging.info('--------------------------');
     logging.info('Define Controller Routing');
     logging.info('--------------------------');
-    defineRoutes([Test, Comments, Blogs], application);
+    defineRoutes([Test, Comments, Posts], application);
 
     logging.info('--------------------------');
     logging.info('Route Not Found');
