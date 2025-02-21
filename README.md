@@ -61,14 +61,22 @@ bun run build
 bun run start-built
 ```
 
-#### Running the App using Dockerfile
+#### Running the App using Dockerfile on Production
 
 ```bash
 # Build Image Command
-docker build -t mhaqnegahdar/portfolio-backend:1.0 .
+docker build -t your-image-name .
 
 # Run Image Command
 docker run --env-file .env -p 8000:8000 your-image-name
+```
+
+#### Running the App using Dockerfile on Development
+
+use `docker-compose.yml` file.
+
+```bash
+docker-compose up
 ```
 
 This project was created using `bun init` in bun v1.1.40. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
