@@ -3,10 +3,11 @@ import express from 'express';
 import './config/logging';
 import 'reflect-metadata';
 
-// Handlers
+// Middlewares
 import { loggingHandler } from './middlewares/loggingHandler.js';
 import { corsHandler } from './middlewares/corsHandler.js';
 import { routeNotFound } from './middlewares/routeNotFound.js';
+
 
 // ENV
 import { SERVER } from './config/config.js';
@@ -16,6 +17,7 @@ import defineRoutes from './modules/route.js';
 import Test from './controllers/test.js';
 import Comments from './controllers/comments.js';
 import Posts from './controllers/posts.js';
+import { ClerkExpressWithAuth } from '@clerk/clerk-sdk-node';
 
 export const application = express();
 export let httpServer: ReturnType<typeof http.createServer>;
@@ -32,6 +34,7 @@ export const Main = () => {
     logging.info('--------------------------');
     application.use(loggingHandler);
     application.use(corsHandler);
+    application.use(ClerkExpressWithAuth());
 
     logging.info('--------------------------');
     logging.info('Define Controller Routing');

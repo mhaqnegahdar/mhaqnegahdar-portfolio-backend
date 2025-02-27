@@ -1,4 +1,4 @@
-version: "3.8"
+# version: "3.8"
 services:
   app:
     build:
@@ -8,8 +8,8 @@ services:
       - .env
     ports:
       - "8000:8000" # Expose port 8080 for the app
-    # volumes:
-    #   - .:/usr/src/app # Mount current directory to /app in the container
+    volumes:
+      - .:/usr/src/app # Mount current directory to /app in the container
     environment:
       - NODE_ENV=development # Set environment variable
     command: bun run dev # Run development script
