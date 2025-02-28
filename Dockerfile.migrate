@@ -1,0 +1,28 @@
+FROM oven/bun:1 AS base
+WORKDIR /usr/src/app/db/migrations
+
+# --- Dependency Installation Stage ---
+FROM base AS install
+
+# - Install Dev dependencies
+RUN mkdir -p /temp/dev
+COPY package.json bun.lockb /temp/dev/
+RUN cd /temp/dev && bun install
+
+# --- Generate Migration Stage ---
+FROM base AS generate
+RUN mkdir -p /temp/generate
+COPY --from=install /temp/dev/node_modules /temp/generate/node_modules
+COPY /src/models /temp/generate/src/models
+COPY drizzle.config.ts package.json /temp/generate/
+COPY .env /temp/generate
+
+RUN bun run migration:generate  
+
+# --- Push Migration Stage ---
+FROM base AS push
+COPY --from=generate /temp/generate/drizzle drizzle
+
+# Push drizzle folder
+USER bun
+ENTRYPOINT [ "bun", "run", "migration:push" ]

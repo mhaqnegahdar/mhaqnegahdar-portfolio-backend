@@ -171,5 +171,10 @@ dist
 # IntelliJ based IDEs
 .idea
 
+# Drizzle (https://github.com/drizzle-team/drizzle-orm)
+
+drizzle/
+
 # Finder (MacOS) folder config
 .DS_Store
+

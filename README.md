@@ -80,3 +80,11 @@ docker-compose up
 ```
 
 This project was created using `bun init` in bun v1.1.40. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+
+### Database Migration
+
+Fist add `DATABASE_URL` to `.env` file and then run the migration script
+
+```bash
+bun run migrate
+```
